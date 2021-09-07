@@ -36,3 +36,48 @@
     transform: rotate(360deg);
   }
 }
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.listItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  background-color: coral;
+  color: slategray;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  width: 60px;
+  margin: 5px;
+}
+
+.check {
+  margin: 10px;
+}
+
+.add {
+  background-color: cornflowerblue;
+  color: bisque;
+  border-radius: 5px;
+  height: 40px;
+  width: 60px;
+  border: none;
+  margin: 5px;
+
+}
+
+.textBox {
+  background-color: bisque;
+  border-radius: 5px;
+  height: 40px;
+  width: 150px;
+  border: none;
+  margin: 5px;
+  color: cornflowerblue;
+}

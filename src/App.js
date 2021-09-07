@@ -1,23 +1,52 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import ListItemCreate from './components/ListItemCreate';
+import TodoDisplay from './components/TodoDisplay';
 
 function App() {
+
+  const [list, setList] = useState([]);
+
+  const addToList = (newItem) => {
+    setList([
+      ...list,
+      {
+        item: newItem,
+        checked: false
+      }]
+    )
+  }
+
+  const deleteTask = (id) => {
+    console.log(id);
+    setList([
+      ...list.slice(0, id),
+      ...list.slice(id + 1)
+
+    ])
+  }
+
+  const checkTask = (id) => {
+    console.log(id);
+
+    const updatedList = list[id];
+    updatedList.checked = !updatedList.checked;
+
+    setList([
+      ...list.slice(0, id),
+      updatedList,
+      ...list.slice(id + 1)
+
+    ])
+
+
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ListItemCreate onNewListItem={addToList} />
+      <TodoDisplay currentList={list} deleteTask={deleteTask} checkTask={checkTask}/>
     </div>
   );
 }
